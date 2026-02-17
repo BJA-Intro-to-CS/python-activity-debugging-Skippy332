@@ -25,7 +25,7 @@ def update_stock(products, product_name, amount):
 
 def get_average_price(products):
     total = calculate_total_price(products)
-    return total / products
+    return total / len(products)
 
 
 def print_products(products):
@@ -64,8 +64,8 @@ quantity = input("Enter quantity: ")
 
 for product in products:
     if product["name"] == choice:
-        if quantity <= product["stock"]:
-            product["stock"] = product["stock"] - quantity
+        if int(quantity) <= product["stock"]:
+            product["stock"] = product["stock"] - int(quantity)
             print("Purchase successful")
         else:
             print("Not enough stock")
@@ -74,7 +74,7 @@ for product in products:
 count = 0
 while count < len(products):
     print(products[count]["name"])
-    count = count - 1
+    count = count + 1
 
 
 print("Done")
